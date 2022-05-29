@@ -1,3 +1,7 @@
+products:
+  number: 100
+  load: true
+
 spring:
   datasource:
     url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/r3}

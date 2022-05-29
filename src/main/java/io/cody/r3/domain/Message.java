@@ -8,13 +8,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Getter
@@ -52,4 +56,9 @@ public class Message {
     @Column(nullable = false)
     private OffsetDateTime lastUpdated;
 
+    public Message(String to, String whoFrom, String body) {
+        this.to = to;
+        this.whoFrom = whoFrom;
+        this.body = body;
+    }
 }
